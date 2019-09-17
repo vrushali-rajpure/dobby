@@ -29,19 +29,19 @@ func New(initialHealth, initialReadiness bool) *Handler {
 // Health return the dobby health status
 func (h *Handler) Health(c *gin.Context) {
 	statusCode := http.StatusOK
-	if !h.isHealthy {
+	//if !h.isHealthy {
 		statusCode = http.StatusInternalServerError
-	}
-	c.JSON(statusCode, gin.H{"healthy": h.isHealthy})
+	//}
+	c.JSON(statusCode, gin.H{"healthy": false})
 }
 
 // Ready return the dobby health status
 func (h *Handler) Ready(c *gin.Context) {
 	statusCode := http.StatusOK
-	if !h.isReady {
+	//if !h.isReady {
 		statusCode = http.StatusServiceUnavailable
-	}
-	c.JSON(statusCode, gin.H{"ready": h.isReady})
+	//}
+	c.JSON(statusCode, gin.H{"ready": false})
 }
 
 // Version return dobby version
