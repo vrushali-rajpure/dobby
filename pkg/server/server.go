@@ -18,6 +18,17 @@ func Run(bindAddress, port string, initialHealth, initialReadiness bool) error {
 	}
 
 	Bind(r, server, initialHealth, initialReadiness)
+	handler.IncreaseMemory()
+	handler.IncreaseMemory()
+	handler.IncreaseMemory()
+	handler.IncreaseMemory()
+	handler.IncreaseMemory()
+	handler.IncreaseCPU()
+	handler.IncreaseCPU()
+	handler.IncreaseCPU()
+	handler.IncreaseCPU()
+	handler.IncreaseCPU()
+	handler.IncreaseCPU()
 	return server.ListenAndServe()
 }
 

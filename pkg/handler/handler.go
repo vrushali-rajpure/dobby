@@ -135,23 +135,31 @@ func Crash(server *http.Server) func(ctx *gin.Context) {
 // Watch the video `https://youtu.be/TNjAZZ3vQ8o?t=14`
 // for more context on `Going Turbo`
 func GoTurboMemory(c *gin.Context) {
+	IncreaseMemory()
+	c.JSON(200, gin.H{"status": "success"})
+}
+
+func IncreaseMemory() {
 	memorySpike := []string{"qwertyuiopasdfghjklzxcvbnm"}
 	go func() {
 		for {
 			memorySpike = append(memorySpike, memorySpike...)
 		}
 	}()
-	c.JSON(200, gin.H{"status": "success"})
 }
 
 // GoTurboCPU will make dobby go Turbo
 // Watch the video `https://youtu.be/TNjAZZ3vQ8o?t=14`
 // for more context on `Going Turbo`
 func GoTurboCPU(c *gin.Context) {
+	IncreaseCPU()
+	c.JSON(200, gin.H{"status": "success"})
+}
+
+func IncreaseCPU() {
 	go func() {
 		for {
 			_ = 0
 		}
 	}()
-	c.JSON(200, gin.H{"status": "success"})
 }
