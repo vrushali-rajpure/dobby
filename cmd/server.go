@@ -3,6 +3,7 @@ package cmd
 import (
 	"github.com/thecasualcoder/dobby/pkg/server"
 	"github.com/urfave/cli"
+	"log"
 	"strconv"
 	"time"
 )
@@ -55,8 +56,9 @@ func serverFlags() []cli.Flag {
 func runServer(context *cli.Context) {
 	bindAddress := context.String("bind-address")
 	port := context.String("port")
-	initialDelay := time.Duration(context.Int64("initial-delay")) * time.Second
-	time.Sleep(initialDelay)
+	log.Println(time.Now(), " Setting up dependencies before starting up...")
+	log.Println(time.Now(), " Simulating Real world example: JVM warmup...")
+	time.Sleep(60 * time.Second)
 	initialHealth := true
 	if health, err := strconv.ParseBool(context.String("initial-health")); err == nil {
 		initialHealth = health
