@@ -10,7 +10,7 @@ pipeline {
   stages {
     stage('Checkout Source') {
       steps {
-        git 'https://github.com/saptaktakalkar/playjenkins.git'
+        git 'https://github.com/vrushali-rajpure/dobby.git'
       }
     }
 
@@ -35,7 +35,7 @@ pipeline {
     stage('Deploy App') {
       steps {
         script {
-          kubernetesDeploy(configs: "myweb.yaml", kubeconfigId: "mykubeconfig")
+          kubernetesDeploy(configs: "examples/kubernetes/deployment.yaml", kubeconfigId: "mykubeconfig")
         }
       }
     }
